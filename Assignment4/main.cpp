@@ -11,6 +11,7 @@
 #include "optionThree.h"
 #include "input.h"
 #include "menus.h"
+#include "Polynomial.h"
 
 void mainMenu(void);
 void programOne(void);
@@ -214,7 +215,7 @@ void programThree(void)
         {
         case '0': return;
         case 'a': case 'A': programThreeSubProgramA(); pause("\n\t\tPress enter to continue..."); break;
-        case 'b': case 'B': /*function here;*/ pause("\n\t\tPress enter to continue...");  break;
+        case 'b': case 'B': clearScreen(); twoPolynomials(); pause("\n\t\tPress enter to continue...");  break;
         default: cout << "\t\tERROR-1A: Invalid input. Must be '0','A', or 'B'" << endl;
             pause("\n\t\tPress enter to continue...");
         }
@@ -224,6 +225,9 @@ void programThree(void)
 
 void programThreeSubProgramA(void)
 {
+    int numberOfTerms = 0;
+    Polynomial poly = Polynomial();
+
     do
     {
         clearScreen();
@@ -234,11 +238,12 @@ void programThreeSubProgramA(void)
         switch (option)
         {
         case 0: return;
-        case 1: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 2: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 3: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 4: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 5: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
+        case 1: numberOfTerms = inputInteger("\n\t\tEnter the number of terms(1..100) for the polynomial: ",1,100); 
+                pause("\n\t\tPress enter to continue..."); break;
+        case 2: specCoefficients(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
+        case 3: evaluateExp(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
+        case 4: solveDerivative(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
+        case 5: solveIntegral(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..5." << endl;
             pause("\n\t\tPress enter to continue...");
         }
