@@ -7,6 +7,8 @@
 #include "input.h"
 using namespace std;
 
+//PreCondition: input number type Complex, and option type int
+//PostCondition: Set new value for the Complex number
 void newComplexNumber(Complex& number, int option)
 {
 
@@ -23,6 +25,8 @@ void newComplexNumber(Complex& number, int option)
 
 }
 
+//PreCondition: input two Complex number
+//PostCondition: Verify condition operators (== and !=) of two complex number 
 void verifyConditionOperators(Complex C1, Complex C2)
 {
 	bool status1 = C1 == C2;
@@ -32,7 +36,8 @@ void verifyConditionOperators(Complex C1, Complex C2)
 	cout << "\t\tC1 != C2 -> (" << C1 << ") != (" << C2 << ") ? " << std::boolalpha << status2 << endl;
 }
 
-
+//PreCondition: input two Complex number
+//PostCondition: Evaluate arithmatic operators (+, - , * and /) of two complex number 
 void evaluateArithmaticOperators(Complex C1, Complex C2)
 {
 	Complex C3 = C1 + C2;
@@ -46,7 +51,8 @@ void evaluateArithmaticOperators(Complex C1, Complex C2)
 	cout << "\t\tDivision\t: C2 / C1 -> (" << C2 << ") / (" << C1 << ") = " << C6 << endl;
 
 }
-
+//PreCondition: input three Complex number
+//PostCondition: Evaluate steps in (3 * (C1 + C2) / 7) / (C2 - C1 / 9) != C3 ? 
 void evaluateOperators(Complex C1, Complex C2, Complex C3)
 {
 
