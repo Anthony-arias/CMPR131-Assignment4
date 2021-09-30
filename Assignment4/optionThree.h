@@ -10,6 +10,8 @@
 
 using namespace std;
 
+//PreCondition: input type int, input type Polynomial, input type string
+//PostCondition: populate polynomial with coefficients
 void specCoefficients(int numberOfTerms, Polynomial& poly ,string outputMessage = "\n\t\tThe P(x) is entered:")
 {
 	if (numberOfTerms == 0)
@@ -29,6 +31,8 @@ void specCoefficients(int numberOfTerms, Polynomial& poly ,string outputMessage 
 	cout << poly << endl;
 }
 
+//PreCondition: input type int, input type Polynomial
+//PostCondition: outputs results of evaluated polynomial 
 void evaluateExp(int numberOfTerms, Polynomial poly)
 {
 	if (numberOfTerms == 0)
@@ -52,6 +56,8 @@ void evaluateExp(int numberOfTerms, Polynomial poly)
 
 }
 
+//PreCondition: input type int, input type Polynomial
+//PostCondition: outputs results of derived polynomial
 void solveDerivative(int numberOfTerms, Polynomial poly)
 {
 	if (numberOfTerms == 0)
@@ -74,6 +80,8 @@ void solveDerivative(int numberOfTerms, Polynomial poly)
 	cout << derivedPoly << endl;
 }
 
+//PreCondition: input type int, input type Polynomial
+//PostCondition: outputs results of integrated polynomial
 void solveIntegral(int numberOfTerms, Polynomial poly)
 {
 	if (numberOfTerms == 0)
@@ -96,6 +104,8 @@ void solveIntegral(int numberOfTerms, Polynomial poly)
 	cout << derivedPoly << endl;
 }
 
+//PreCondition: NA
+//PostCondition: outputs results from sub-program B
 void twoPolynomials(void)
 {
 	Polynomial polyOne = Polynomial();
@@ -111,7 +121,7 @@ void twoPolynomials(void)
 	cout << "\n\t\tAddition of polynomials       -> P1 + P2 = ";
 	cout << polyOne + polyTwo;
 
-	cout << "\n\t\tSubtration of polynomials     -> P1 - P2 = ";
+	cout << "\n\t\tSubtraction of polynomials    -> P1 - P2 = ";
 	cout << polyOne - polyTwo;
 
 	cout << "\n\t\tMultiplication of polynomials -> P1 * P2 = ";

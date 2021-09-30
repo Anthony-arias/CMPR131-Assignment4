@@ -8,34 +8,47 @@
 #include <string>
 #include <iomanip>
 
-
 class Polynomial
 {
 private:
 	std::vector<double> coefficients;
 	int size;
+
 public:
 	Polynomial()
 	{
 		size = 0;
 	}
 
+	~Polynomial()
+	{
+		coefficients.clear();
+	}
+
+	//PreCondition: NA
+	//PostCondition: returns size of coefficients vector 
 	int getSize(void) const
 	{
 		return size;
 	}
 
+	//PreCondition: input is type double
+	//PostCondition: insert double in to coefficients vector 
 	void insertCoeffi(double coeffi)
 	{
 		coefficients.push_back(coeffi);
 		size++;
 	}
 
+	//PreCondition: NA
+	//PostCondition: clear coefficients vector 
 	void clearCoeffi(void)
 	{
 		coefficients.clear();
 	}
 
+	//PreCondition: input is type double
+	//PostCondition: returns value of evaluated polynomial and prints steps.
 	double evaluate(double xValue)
 	{
 		double total = 0;
@@ -71,6 +84,8 @@ public:
 		return total;
 	}
 
+	//PreCondition: NA
+	//PostCondition: returns derivative of polynomial
 	Polynomial derive(void)
 	{
 		Polynomial temp = Polynomial();
@@ -85,6 +100,8 @@ public:
 		return temp;
 	}
 
+	//PreCondition: NA
+	//PostCondition: returns integral of polynomial
 	Polynomial integrate(void)
 	{
 		Polynomial temp = Polynomial();
@@ -101,6 +118,8 @@ public:
 		return temp;
 	}
 
+	//PreCondition: input ostream, input type Polynomial
+	//PostCondition: overloaded << operator outputs polynomial 
 	friend std::ostream& operator<<(std::ostream& out, const Polynomial& poly)
 	{
 		std::string output = "";
@@ -140,6 +159,8 @@ public:
 		return out;
 	}
 
+	//PreCondition: input type Polynomial, input type Polynomial
+	//PostCondition: overloaded + operator returns sum of two polynomials
 	friend Polynomial operator+(const Polynomial& lhs, const Polynomial& rhs)
 	{
 		Polynomial temp = Polynomial();
@@ -188,6 +209,8 @@ public:
 		return temp;
 	}
 
+	//PreCondition: input type Polynomial, input type Polynomial
+	//PostCondition: overloaded - operator returns difference of two polynomials
 	friend Polynomial operator-(const Polynomial& lhs, const Polynomial& rhs)
 	{
 		Polynomial temp = Polynomial();
@@ -211,6 +234,8 @@ public:
 		return lhs + temp;
 	}
 
+	//PreCondition: input type Polynomial, input type Polynomial
+	//PostCondition: overloaded * operator returns multiple of two polynomials
 	friend Polynomial operator*(const Polynomial& lhs, const Polynomial& rhs)
 	{
 		
@@ -257,6 +282,8 @@ public:
 		return total;
 	}
 
+	//PreCondition: input type Polynomial, input type int
+	//PostCondition: overloaded * operator returns multiple of polynomial and integer
 	friend Polynomial operator*(const Polynomial& lhs, const int constant)
 	{
 		Polynomial temp = Polynomial();
@@ -268,6 +295,8 @@ public:
 		return temp;
 	}
 
+	//PreCondition: input type int, input type Polynomial
+	//PostCondition: overloaded * operator returns multiple of integer and polynomial
 	friend Polynomial operator*(const int constant,const Polynomial& rhs)
 	{
 		Polynomial temp = Polynomial();
