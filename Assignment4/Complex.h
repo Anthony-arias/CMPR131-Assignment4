@@ -87,13 +87,14 @@ public:
 	{
 		Complex temp;
 
+
 		temp.realNumber = (realNumber * right.realNumber) - (imaginaryNumber * right.imaginaryNumber);
 		temp.imaginaryNumber = (realNumber * right.imaginaryNumber) + (imaginaryNumber * right.realNumber);
 		return temp;
 	}
 
 	//PreCondition: input type Complex
-	//PostCondition: overloaded * operator returns div of two Complex number
+	//PostCondition: overloaded / operator returns div of two Complex number
 	Complex operator / (const Complex& right)
 	{
 		Complex temp;
@@ -152,10 +153,13 @@ public:
 		return Complex{ realNumber * right, imaginaryNumber * right };
 	}
 
-	// Precondition: NA
+	// Precondition: if right 0 it sets realNumber and imaginaryNumber to 0
 	// Postcondition: / Overloaded to accept equation Complex / doubleValue
 	Complex operator / (const double& right)
 	{
+		if (right == 0)
+			return Complex{ 0, 0 };
+
 		return Complex{ realNumber / right, imaginaryNumber / right };
 	}
 
@@ -194,10 +198,22 @@ public:
 		return status;
 	}
 
-	// Precondition: NA
+	// Precondition: If realNumber or imaginaryNumber is 0 then 0 is returned in it's place
 	// Postcondition: / Overloaded to accept equation doubleValue / Complex
 	friend Complex operator / (double left, Complex right)
 	{
+
+		if (right.realNumber == 0 || right.imaginaryNumber)
+		{
+			if (right.realNumber == 0 && right.imaginaryNumber == 0)
+				return Complex{ 0, 0 };
+			else if (right.realNumber == 0 && right.imaginaryNumber != 0)
+				return { 0, left / right.imaginaryNumber };
+			else if (right.realNumber != 0 && right.imaginaryNumber == 0)
+				return Complex{ left / right.realNumber, 0 };
+		}
+		
+
 		return Complex{ left / right.realNumber, left / right.imaginaryNumber };
 	}
 
