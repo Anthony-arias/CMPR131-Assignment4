@@ -19,6 +19,8 @@ void displayMainMenu(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option one menu options
 void displayOptionOneMenu(void)
 {
     cout << "\n\tA complex number is a number that can be expressed in the form a + b i, where a and b are real";
@@ -34,6 +36,8 @@ void displayOptionOneMenu(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option one sub menu options
 void displayOptionOneMenuA(void)
 {
     cout << "\n\tA> A Complex Number" << endl;
@@ -51,6 +55,8 @@ void displayOptionOneMenuA(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option one sub menu options
 void displayOptionOneMenuB(void)
 {
     cout << "\n\tB> Multiple Complex Numbers" << endl;
@@ -65,6 +71,8 @@ void displayOptionOneMenuB(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option two menu options
 void displayOptionTwoMenu(void)
 {
     cout << "\n\tA rational number is a number that can be written as a fraction, a/b, where a is numerator and";
@@ -81,6 +89,8 @@ void displayOptionTwoMenu(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option two menu options
 void displayOptionTwoMenuA(void)
 {
     cout << "\n\tA> A Rational Number" << endl;
@@ -99,6 +109,8 @@ void displayOptionTwoMenuA(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option two sub menu options
 void displayOptionTwoMenuB(void)
 {
     cout << "\n\tB> Multiple Rational Numbers" << endl;
@@ -113,6 +125,8 @@ void displayOptionTwoMenuB(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option three menu options
 void displayOptionThreeMenu(void)
 {
     cout << "\n\tA polynomial is an expression consisting of variables(also called indeterminates) and";
@@ -127,6 +141,8 @@ void displayOptionThreeMenu(void)
     cout << "\t" + string(90, char(205)) << endl;
 }
 
+//PreCondition: NA
+//PostCondition: displays option three sub menu options
 void displayOptionThreeMenuA(void)
 {
     cout << "\n\tA> Single Polynomial" << endl;
