@@ -6,23 +6,33 @@
 #include "Complex.h"
 #include "input.h"
 using namespace std;
+
 // Option A ======================================
 
+// Precondition: NA
+// Postcondition: a new realNumber is set on the object past in
 void newRealNumber(Complex& C1)
 {
 	C1.setRealNumber(inputDouble("\n\t\tEnter a value (double value) for the real part: "));
 }
 
+// Precondition: NA
+// Postcondition: a new realNumber is set on the object past in
 void newImaginaryNumber(Complex& C1)
 {
 	C1.setImaginaryNumber(inputDouble("\n\t\tEnter a value (double value) for the imaginary part: "));
 }
 
+
+// Precondition: NA
+// Postcondition: C1 information displayed 
 void displayComplex(const Complex C1)
 {
 	cout << "\n\t\tComplex number C1 = " << C1 << endl;
 }
 
+// Precondition: NA
+// Postcondition: Create a copy of C1 as display it negated
 void negateComplex(const Complex C1)
 {
 	cout << "\n\t\tNegated the complex number C2 (a copy of C1)" << endl;
@@ -31,6 +41,8 @@ void negateComplex(const Complex C1)
 	cout << "\n\t\t-(" << C1 << ") = " << -C2 << endl;
 }
 
+// Precondition: NA
+// Postcondition: a constant is added by C1 and C1 is added by a constant
 void addConstant(const Complex C1)
 {
 	double value = inputDouble("\n\t\tEnter a value (double): ");
@@ -42,6 +54,8 @@ void addConstant(const Complex C1)
 	cout << "\t\t" << value << " + (" << C1 << ") = " << value + C2 << endl;
 }
 
+// Precondition: NA
+// Postcondition: a constant is subtracted by C1 and C1 is subtracted by a constant
 void subtractConstant(const Complex C1)
 {
 	double value = inputDouble("\n\t\tEnter a value (double): ");
@@ -53,6 +67,8 @@ void subtractConstant(const Complex C1)
 	cout << "\t\t" << value << " - (" << C1 << ") = " << value - R2 << endl;
 }
 
+// Precondition: NA
+// Postcondition: a constant is multiplied by C1 and C1 is multiplied by a constant
 void multiplyConstant(const Complex C1)
 {
 	double value = inputDouble("\n\t\tEnter a value (double): ");
@@ -64,6 +80,8 @@ void multiplyConstant(const Complex C1)
 	cout << "\t\t" << value << " * (" << C1 << ") = " << value * C2 << endl;
 }
 
+// Precondition: NA
+// Postcondition: a constant is divided by C1 and C1 is divided by a constant
 void divideConstant(const Complex C1)
 {
 	double value = inputDouble("\n\t\tEnter a value (double): ");
