@@ -105,8 +105,12 @@ public:
 	Polynomial integrate(void)
 	{
 		Polynomial temp = Polynomial();
-		if (coefficients.size() == 1) return temp;
-
+		if (coefficients.size() == 1)
+		{
+			temp.insertCoeffi(coefficients[0]);
+			temp.insertCoeffi(0);
+			return temp;
+		}
 		
 		for (int i = 0; i < coefficients.size(); i++)
 		{
