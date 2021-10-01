@@ -9,7 +9,7 @@ using namespace std;
 //PostCondition: displays main menu options
 void displayMainMenu(void)
 {
-    cout << "\n\tCMPR131 Chapter 4: Complex Numbers, Rational Numbers, Polynomials by Anthony, An, Van, Vincent, Nhan (1/6/21)" << endl;
+    cout << "\n\tCMPR131 Chapter 4: Complex Numbers, Rational Numbers, Polynomials by Anthony, An, Van, Vincent, Nhan (9/30/21)" << endl;
     cout << "\t" + string(90, char(205)) << endl;
     cout << "\t\t1> Complex Numbers" << endl;
     cout << "\t\t2> Rational Numbers" << endl;

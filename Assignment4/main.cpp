@@ -39,7 +39,7 @@ void mainMenu(void)
 
         displayMainMenu();
 
-        int userInput = inputInteger("\t\tOption: ");
+        int userInput = inputInteger("\t\tOption: ",0,3);
         switch (userInput)
         {
         case 0: clearScreen(); return;
@@ -47,7 +47,6 @@ void mainMenu(void)
         case 2: clearScreen(); rational_numbers(); break;
         case 3: clearScreen(); programThree(); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..3." << endl;
-            pause("\n\t\tPress enter to continue...");
         }
 
     } while (true);
@@ -87,7 +86,7 @@ void programOneSubProgramA(void)
         clearScreen();
         displayOptionOneMenuA();
 
-        int option = inputInteger("\t\tOption: ");
+        int option = inputInteger("\t\tOption: ",0,8);
 
         switch (option)
         {
@@ -101,7 +100,6 @@ void programOneSubProgramA(void)
         case 7: multiplyConstant(C1); pause("\n\t\tPress enter to continue..."); break;
         case 8: divideConstant(C1); pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..8." << endl;
-            pause("\n\t\tPress enter to continue...");
         }
 
     } while (true);
@@ -117,7 +115,7 @@ void programOneSubProgramB(void)
     {
         clearScreen();
         displayOptionOneMenuB();
-        int option = inputInteger("\t\tOption: ");
+        int option = inputInteger("\t\tOption: ",0,5);
         switch (option)
         {
         case 0: return;
@@ -127,7 +125,6 @@ void programOneSubProgramB(void)
         case 4: evaluateArithmaticOperators(C1, C2); pause("\n\t\tPress enter to continue..."); break;
         case 5: evaluateOperators(C1, C2, C3); pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..5." << endl;
-            pause("\n\t\tPress enter to continue...");
         }
 
     } while (true);
@@ -168,7 +165,7 @@ void programThreeSubProgramA(void)
         clearScreen();
         displayOptionThreeMenuA();
 
-        int option = inputInteger("\t\tOption: ");
+        int option = inputInteger("\t\tOption: ",0,5);
 
         switch (option)
         {
@@ -179,7 +176,6 @@ void programThreeSubProgramA(void)
         case 4: solveDerivative(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
         case 5: solveIntegral(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..5." << endl;
-            pause("\n\t\tPress enter to continue...");
         }
 
     } while (true);
