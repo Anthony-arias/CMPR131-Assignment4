@@ -157,8 +157,6 @@ public:
 	// Postcondition: / Overloaded to accept equation Complex / doubleValue
 	Complex operator / (const double& right)
 	{
-		if (right == 0)
-			return Complex{ 0, 0 };
 
 		return Complex{ realNumber / right, imaginaryNumber / right };
 	}
