@@ -3,21 +3,6 @@
 #define RATIONAL_H
 
 #include <iostream>
-#include <iomanip>
-#include <array>
-#include <vector>
-#include <ctime>
-#include <cmath>
-#include <string>
-#include <cstring>
-#include <fstream>
-#include <sstream>
-#include <map>
-#include <numeric>
-#include <list>
-#include <forward_list>
-#include <algorithm>
-#include <stack>
 #include "input.h"
 using namespace std;
 
