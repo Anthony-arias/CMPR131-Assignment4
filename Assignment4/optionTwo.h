@@ -199,9 +199,13 @@ void negateRationalNumber(Rational R1)
 	{
 		R2.simplify(n, d);
 		cout << "\tR2 = -(" << R2 << ") = ";
-		if (n < 0 || d < 0)
+		if (n < 0 && d < 0)
 		{
-			cout << abs(n) << "/" << d;
+			cout << "-" << abs(n) << "/" << abs(d);
+		}
+		else if (n < 0 || d < 0)
+		{
+			cout << abs(n) << "/" << abs(d);
 		}
 		else if (n > 0)
 		{
