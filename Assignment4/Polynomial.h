@@ -32,6 +32,13 @@ public:
 		return size;
 	}
 
+	//PreCondition: NA
+	//PostCondition: returns coefficients vector 
+	std::vector<double> getCoefficients(void)
+	{
+		return coefficients;
+	}
+
 	//PreCondition: input is type double
 	//PostCondition: insert double in to coefficients vector 
 	void insertCoeffi(double coeffi)
