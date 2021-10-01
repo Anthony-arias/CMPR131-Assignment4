@@ -45,22 +45,25 @@ void evaluateExpression(Rational R1, Rational R2);
 // Postcondition: display menu and instruction for rational number
 void rational_numbers()
 {
-	cout << "\tA rational number is a number that can be written as a fraction, a/b, where a is numerator and\n";
-	cout << "\tb is denominator. Rational numbers are all real numbers, and can be positive or negative. A\n";
-	cout << "\tnumber that is not rational is called irrational. Most of the numbers that people use in everyday\n";
-	cout << "\tlife are rational.These include fractions, integers and numbers with finite decimal digits.\n";
-	cout << "\tIn general, a number that can be written as a fraction while it is in its own form is rational.\n";
-
 	do
 	{
+		cout << "\tA rational number is a number that can be written as a fraction, a/b, where a is numerator and\n";
+		cout << "\tb is denominator. Rational numbers are all real numbers, and can be positive or negative. A\n";
+		cout << "\tnumber that is not rational is called irrational. Most of the numbers that people use in everyday\n";
+		cout << "\tlife are rational.These include fractions, integers and numbers with finite decimal digits.\n";
+		cout << "\tIn general, a number that can be written as a fraction while it is in its own form is rational.\n";
+
 		char option = ' ';
 		switch (displayMenuOptions(option))
 		{
 		case '0': return; break;
 		case 'A': option_A(); break;
 		case 'B': option_B(); break;
-		default: cout << "\n\tERROR-1A: Invalid input. Must be 'A','B', or '0'\n"; break;
+		default: cout << "\n\tERROR-1A: Invalid input. Must be 'A','B', or '0'\n";
 			pause("\n\tPress enter to continue...");
+			clearScreen();
+			break;
+
 		}
 	} while (true);
 }
@@ -167,7 +170,10 @@ void enterDenominator(Rational& R1)
 // Postcondition: display rational number
 void displayRationalNumber(Rational R1)
 {
-	cout << "\n\tRational number R1 = " << R1 << "\n";
+	if (!R1.isDenominatorValid(R1))
+		cout << "\n\tRational number R1 = " << R1 << " = undefined.\n";
+	else
+		cout << "\n\tRational number R1 = " << R1;
 }
 
 // Precondition: Rational object
@@ -186,7 +192,7 @@ void normalizeRationalNumber(Rational R1)
 	{
 		cout << "\n\tNormalized rational number R2 (a copy of R1)\n\n";
 		R2.simplify(n, d);
-		cout << "\tR2 = " << R2 << "\n\n";
+		cout << "\tR2 = " << R2;
 	}
 
 }
@@ -210,11 +216,11 @@ void negateRationalNumber(Rational R1)
 		cout << "\tR2 = -(" << R2 << ") = ";
 		if (n < 0 || d < 0)
 		{
-			cout << abs(n) << "/" << d << "\n\n";
+			cout << abs(n) << "/" << d;
 		}
 		else if (n > 0)
 		{
-			cout << "-" << R2 << "\n\n";
+			cout << "-" << R2;
 		}
 	}
 
@@ -235,7 +241,7 @@ void calculateRationalNumberWithConstant(Rational R1, int option)
 			cout << "\n\tR2 + value ";
 			cout << "\n\n\t(" << R1 << ")" << " + " << number << " = undefined";
 			cout << "\n\n\tvalue + R2";
-			cout << "\n\n\t" << number << " + (" << R1 << ")" << " = undefined\n\n";
+			cout << "\n\n\t" << number << " + (" << R1 << ")" << " = undefined";
 
 		}
 		else
@@ -261,7 +267,7 @@ void calculateRationalNumberWithConstant(Rational R1, int option)
 			cout << "\n\tR2 + value ";
 			cout << "\n\n\t(" << R1 << ")" << " - " << number << " = undefined";
 			cout << "\n\n\tvalue + R2";
-			cout << "\n\n\t" << number << " - (" << R1 << ")" << " = undefined\n\n";
+			cout << "\n\n\t" << number << " - (" << R1 << ")" << " = undefined";
 
 		}
 		else
@@ -284,10 +290,10 @@ void calculateRationalNumberWithConstant(Rational R1, int option)
 		R2.setDenominator(1);
 		if (!R1.isDenominatorValid(R1))
 		{
-			cout << "\n\tR2 + value ";
+			cout << "\n\tR2 * value ";
 			cout << "\n\n\t(" << R1 << ")" << " * " << number << " = undefined";
-			cout << "\n\n\tvalue + R2";
-			cout << "\n\n\t" << number << " * (" << R1 << ")" << " = undefined\n\n";
+			cout << "\n\n\tvalue * R2";
+			cout << "\n\n\t" << number << " * (" << R1 << ")" << " = undefined";
 		}
 		else
 		{
@@ -309,11 +315,29 @@ void calculateRationalNumberWithConstant(Rational R1, int option)
 
 		if (!R1.isDenominatorValid(R1))
 		{
-			cout << "\n\tR2 + value ";
+			cout << "\n\tR2 / value ";
 			cout << "\n\n\t(" << R1 << ")" << " / " << number << " = undefined";
-			cout << "\n\n\tvalue + R2";
-			cout << "\n\n\t" << number << " / (" << R1 << ")" << " = undefined\n\n";
+			cout << "\n\n\tvalue / R2";
+			cout << "\n\n\t" << number << " / (" << R1 << ")" << " = undefined";
 
+		}
+		else if ((!R1.isDenominatorValid(R1)) && number == 0)
+		{
+			cout << "\n\tR2 / value ";
+			cout << "\n\n\t(" << R1 << ")" << " / " << number << " = undefined";
+			cout << "\n\n\tvalue / R2";
+			cout << "\n\n\t" << number << " / (" << R1 << ")" << " = undefined";
+		}
+		else if (number == 0)
+		{
+			R4 = R2 / R1;
+			cout << "\n\tR2 / value ";
+			cout << "\n\n\t(" << R1 << ")" << " / " << number << " = undefined";
+			cout << "\n\n\tvalue / R2";
+			if (R1.getNumerator() == 0)
+				cout << "\n\n\t" << number << " / (" << R1 << ")" << " = undefined";
+			else
+				cout << "\n\n\t" << number << " / (" << R1 << ")" << " = 0";
 		}
 		else
 		{
@@ -356,7 +380,7 @@ int option_A_menuOptions(int& option)
 // Postcondition: display option B's menu and tasks
 void option_B()
 {
-	Rational R1, R2;;
+	Rational R1, R2;
 	clearScreen();
 	do
 	{
@@ -408,13 +432,12 @@ void enterRationalNumber(Rational& number, int option)
 		number.setDenominator(d1);
 		if (!number.isDenominatorValid(number))
 		{
-			cout << "\n\tR1 = " << number << " = undefined.\n\n";
+			cout << "\n\tR1 = " << number << " = undefined\n\n";
 		}
 		else
 		{
-
 			number.simplify(n1, d1);
-			cout << "\n\tR1 = " << number << "\n\n";
+			cout << "\n\tR1 = " << number;
 		}
 
 
@@ -427,13 +450,13 @@ void enterRationalNumber(Rational& number, int option)
 		number.setDenominator(d2);
 		if (!number.isDenominatorValid(number))
 		{
-			cout << "\n\tR2 = " << number << " = undefined.\n\n";
+			cout << "\n\tR2 = " << number << " = undefined";
 		}
 		else
 		{
 
 			number.simplify(n2, d2);
-			cout << "\n\tR2 = " << number << "\n\n";
+			cout << "\n\tR2 = " << number;
 		}
 	}
 }
@@ -502,31 +525,34 @@ void evaluateArithmaticOperators(Rational R1, Rational R2)
 
 	if (!R1.isDenominatorValid(R1) && !R2.isDenominatorValid(R2))
 	{
-		cout << "\n\n\t\tAddition\t: R1 + R2 -> (undefined) + (undefined) = undefined.";
-		cout << "\n\t\tSubtraction\t: R2 - R1 -> (undefined) - (undefined) = undefined.";
-		cout << "\n\t\tMultiplication\t: R1 * R2 -> (undefined) * (undefined) = undefined.";
-		cout << "\n\t\tDivision\t: R2 / R1 -> (undefined) / (undefined) = undefined.";
+		cout << "\n\n\t\tAddition\t: R1 + R2 -> (undefined) + (undefined) = undefined";
+		cout << "\n\t\tSubtraction\t: R2 - R1 -> (undefined) - (undefined) = undefined";
+		cout << "\n\t\tMultiplication\t: R1 * R2 -> (undefined) * (undefined) = undefined";
+		cout << "\n\t\tDivision\t: R2 / R1 -> (undefined) / (undefined) = undefined";
 	}
 	else if (!R1.isDenominatorValid(R1) && R2.isDenominatorValid(R2))
 	{
-		cout << "\n\n\t\tAddition\t: R1 + R2 -> (undefined) + (" << R2 << ") = undefined.";
-		cout << "\n\t\tSubtraction\t: R2 - R1 -> (" << R2 << ") - (undefined) = undefined.";
-		cout << "\n\t\tMultiplication\t: R1 * R2 -> (undefined) * (" << R2 << ") = undefined.";
-		cout << "\n\t\tDivision\t: R2 / R1 -> (" << R2 << ") / (undefined) = undefined.";
+		cout << "\n\n\t\tAddition\t: R1 + R2 -> (undefined) + (" << R2 << ") = undefined";
+		cout << "\n\t\tSubtraction\t: R2 - R1 -> (" << R2 << ") - (undefined) = undefined";
+		cout << "\n\t\tMultiplication\t: R1 * R2 -> (undefined) * (" << R2 << ") = undefined";
+		cout << "\n\t\tDivision\t: R2 / R1 -> (" << R2 << ") / (undefined) = undefined";
 	}
 	else if (R1.isDenominatorValid(R1) && !R2.isDenominatorValid(R2))
 	{
-		cout << "\n\n\t\tAddition\t: R1 + R2 -> (" << R1 << ") + (undefined) = undefined.";
-		cout << "\n\t\tSubtraction\t: R2 - R1 -> (undefined) - (" << R1 << ") = undefined.";
-		cout << "\n\t\tMultiplication\t: R1 * R2 -> (" << R1 << ") * (undefined) = undefined.";
-		cout << "\n\t\tDivision\t: R2 / R1 -> (undefined) / (" << R1 << ") = undefined.";
+		cout << "\n\n\t\tAddition\t: R1 + R2 -> (" << R1 << ") + (undefined) = undefined";
+		cout << "\n\t\tSubtraction\t: R2 - R1 -> (undefined) - (" << R1 << ") = undefined";
+		cout << "\n\t\tMultiplication\t: R1 * R2 -> (" << R1 << ") * (undefined) = undefined";
+		cout << "\n\t\tDivision\t: R2 / R1 -> (undefined) / (" << R1 << ") = undefined";
 	}
 	else
 	{
 		cout << "\n\n\t\tAddition\t: R1 + R2 -> (" << R1 << ") + (" << R2 << ") = " << R3;
 		cout << "\n\t\tSubtraction\t: R2 - R1 -> (" << R2 << ") - (" << R1 << ") = " << R4;
 		cout << "\n\t\tMultiplication\t: R1 * R2 -> (" << R1 << ") * (" << R2 << ") = " << R5;
-		cout << "\n\t\tDivision\t: R2 / CR -> (" << R2 << ") / (" << R1 << ") = " << R6;
+		if (R1.getNumerator() == 0)
+			cout << "\n\t\tDivision\t: R2 / R1 -> (" << R2 << ") / (" << R1 << ") = undefined";
+		else
+			cout << "\n\t\tDivision\t: R2 / R1 -> (" << R2 << ") / (" << R1 << ") = " << R6;
 	}
 }
 
@@ -538,26 +564,32 @@ void evaluateExpression(Rational R1, Rational R2)
 	R3.setNumerator(621);
 	R3.setDenominator(889);
 	Rational R4 = R1 + R2;
-	Rational temp1(3, 1);
+	Rational temp1;
+	temp1.setNumerator(3);
+	temp1.setDenominator(1);
 	Rational R5 = R4 * temp1;
-	Rational temp2(7, 1);
+	Rational temp2;
+	temp2.setNumerator(7);
+	temp2.setDenominator(1);
 	Rational numerator = R5 / temp2;
-	Rational temp3(9, 1);
+	Rational temp3;
+	temp3.setNumerator(9);
+	temp3.setDenominator(1);
 	Rational R6 = R1 / temp3;
 	Rational denominator = R2 - R6;
 	Rational R7 = numerator / denominator;
-	bool status = R7 != R3;
+	bool status = R7 >= R3;
 
 	cout << "\n\t\t R1 = " << R1 << endl;
 	cout << "\t\t R2 = " << R2 << endl;
 	cout << "\t\t R3 = " << R3 << endl;
 
 	cout << "\n\t\tEvaluating expression..." << endl;
-	cout << "\t\t\t(3 * (R1 + R2) / 7) / (R2 - C1 / 9) != (" << R3 << ") ? " << endl;
-	cout << "\n\t\tStep #1: (3 * (" << R4 << ") / 7) / ((" << R2 << ") - (" << R6 << "))!= (" << R3 << ") ? " << endl;
-	cout << "\t\tStep #2: ((" << R5 << ") / 7) / (" << denominator << ") != (" << R3 << ") ? " << endl;
-	cout << "\t\tStep #3: (" << numerator << ") / (" << denominator << ") != (" << R3 << ") ? " << endl;
-	cout << "\t\tStep #4: (" << R7 << ") != (" << R3 << ") ? " << endl;
+	cout << "\t\t\t(3 * (R1 + R2) / 7) / (R2 - C1 / 9) >= (" << R3 << ") ? " << endl;
+	cout << "\n\t\tStep #1: (3 * (" << R4 << ") / 7) / ((" << R2 << ") - (" << R6 << ")) >= (" << R3 << ") ? " << endl;
+	cout << "\t\tStep #2: ((" << R5 << ") / 7) / (" << denominator << ") >= (" << R3 << ") ? " << endl;
+	cout << "\t\tStep #3: (" << numerator << ") / (" << denominator << ") >= (" << R3 << ") ? " << endl;
+	cout << "\t\tStep #4: (" << R7 << ") >= (" << R3 << ") ? " << endl;
 	cout << "\t\tStep #5: " << std::boolalpha << status << endl;
 }
 

@@ -30,7 +30,7 @@ private:
 public:
 
 	//Argument constructor
-	Rational(int newNumerator = 1, int newDenominator = 1)
+	Rational(int newNumerator = 0, int newDenominator = 1)
 	{
 		numerator = newDenominator;
 		denominator = newDenominator;
@@ -75,49 +75,58 @@ public:
 	// Postcondition: simplify rational number
 	void simplify(int& numerator, int& denominator)
 	{
-		int n = numerator;
-		if (numerator < 0)
-			n = -numerator;
-		else
-			n = numerator;
-		int d = denominator;
-		int largest = 1;
-		if (n > d)
-			largest = n;
-		else
-			largest = d;
-
-		int gcd = 0;
-
-		for (int i = largest; i >= 2; i--)
+		if (numerator == 0)
 		{
-			if (numerator % i == 0 && denominator % i == 0)
+			setNumerator(numerator);
+			setDenominator(denominator);
+		}
+		else
+		{
+			int n = numerator;
+			if (numerator < 0)
+				n = -numerator;
+			else
+				n = numerator;
+			int d = denominator;
+			int largest = 1;
+			if (n > d)
+				largest = n;
+			else
+				largest = d;
+
+			int gcd = 0;
+
+			for (int i = largest; i >= 2; i--)
 			{
-				gcd = i;
-				break;
+				if (numerator % i == 0 && denominator % i == 0)
+				{
+					gcd = i;
+					break;
+				}
 			}
+
+			if (gcd != 0)
+			{
+				numerator /= gcd;
+				denominator /= gcd;
+			}
+
+			if (numerator < 0 && denominator < 0)
+			{
+				numerator = abs(numerator);
+				denominator = abs(denominator);
+			}
+
+			if (denominator < 0)
+			{
+				numerator = -numerator;
+				denominator = abs(denominator);
+			}
+
+			setNumerator(numerator);
+			setDenominator(denominator);
 		}
 
-		if (gcd != 0)
-		{
-			numerator /= gcd;
-			denominator /= gcd;
-		}
-
-		if (numerator < 0 && denominator < 0)
-		{
-			numerator = abs(numerator);
-			denominator = abs(denominator);
-		}
-
-		if (denominator < 0)
-		{
-			numerator = -numerator;
-			denominator = abs(denominator);
-		}
-
-		setNumerator(numerator);
-		setDenominator(denominator);
 	}
 
 	// Precondition: pass in Rational object
