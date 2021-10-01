@@ -80,6 +80,8 @@ void programOne(void)
 //PostCondition: executes different programs in sub-program A
 void programOneSubProgramA(void)
 {
+    Complex C1;
+
     do
     {
         clearScreen();
@@ -90,14 +92,14 @@ void programOneSubProgramA(void)
         switch (option)
         {
         case 0: return;
-        case 1: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 2: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 3: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 4: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 5: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 6: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 7: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
-        case 8: /*function here;*/ pause("\n\t\tPress enter to continue..."); break;
+        case 1: newRealNumber(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 2: newImaginaryNumber(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 3: displayComplex(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 4: negateComplex(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 5: addConstant(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 6: subtractConstant(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 7: multiplyConstant(C1); pause("\n\t\tPress enter to continue..."); break;
+        case 8: divideConstant(C1); pause("\n\t\tPress enter to continue..."); break;
         default: cout << "\t\tERROR-3A: Invalid input. Must be from 0..8." << endl;
             pause("\n\t\tPress enter to continue...");
         }

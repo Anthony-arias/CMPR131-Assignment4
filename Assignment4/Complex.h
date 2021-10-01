@@ -107,7 +107,64 @@ public:
 
 	}
 
-  
+	// Precondition: None
+	// Postcondition: + Overloaded to accept equation Complex + doubleValue
+	Complex operator + (const double& right)
+	{
+		return Complex{ realNumber + right, imaginaryNumber };
+	}
+
+	// Precondition: None
+	// Postcondition: + Overloaded to accept equation doubleValue + Complex
+	friend Complex operator + (double left, Complex right)
+	{
+		return right + left;
+	}
+	// Precondition: NA
+	// Postcondition: - Overloaded to accept equation Complex - doubleValue
+	Complex operator - (const double& right)
+	{
+		return Complex{ realNumber - right, imaginaryNumber };
+	}
+
+	// Precondition: NA
+	// Postcondition: - Overloaded to accept equation doubleValue - Complex
+	friend Complex operator - (double left, Complex right)
+	{
+		double realNegated = -right.getRealNumber();
+
+		Complex temp(realNegated, right.imaginaryNumber);
+
+		return temp + left;
+	}
+
+	// Precondition: NA
+	// Postcondition: - Overloaded to negate Complex
+	Complex operator-() const
+	{
+		return Complex{ -realNumber, -imaginaryNumber };
+	}
+
+	// Precondition: NA
+	// Postcondition: * Overloaded to accept equation Complex * doubleValue
+	Complex operator * (const double& right)
+	{
+		return Complex{ realNumber * right, imaginaryNumber * right };
+	}
+
+	// Precondition: NA
+	// Postcondition: / Overloaded to accept equation Complex / doubleValue
+	Complex operator / (const double& right)
+	{
+		return Complex{ realNumber / right, imaginaryNumber / right };
+	}
+
+	// Precondition: NA
+	// Postcondition: * Overloaded to accept equation doubleValue * Complex
+	friend Complex operator * (double left, Complex right)
+	{
+		return right * left;
+	}
 	//PreCondition: input type Complex
 	//PostCondition: Overloaded == operator. Returns true if the current object is set to a value equal to that of right.
 
@@ -135,6 +192,13 @@ public:
 			status = true;
 
 		return status;
+	}
+
+	// Precondition: NA
+	// Postcondition: / Overloaded to accept equation doubleValue / Complex
+	friend Complex operator / (double left, Complex right)
+	{
+		return Complex{ left / right.realNumber, left / right.imaginaryNumber };
 	}
 
 	//PreCondition: input ostream, input type Polynomial

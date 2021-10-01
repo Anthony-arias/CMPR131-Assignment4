@@ -6,6 +6,77 @@
 #include "Complex.h"
 #include "input.h"
 using namespace std;
+// Option A ======================================
+
+void newRealNumber(Complex& C1)
+{
+	C1.setRealNumber(inputDouble("\n\t\tEnter a value (double value) for the real part: "));
+}
+
+void newImaginaryNumber(Complex& C1)
+{
+	C1.setImaginaryNumber(inputDouble("\n\t\tEnter a value (double value) for the imaginary part: "));
+}
+
+void displayComplex(const Complex C1)
+{
+	cout << "\n\t\tComplex number C1 = " << C1 << endl;
+}
+
+void negateComplex(const Complex C1)
+{
+	cout << "\n\t\tNegated the complex number C2 (a copy of C1)" << endl;
+
+	Complex C2(C1);
+	cout << "\n\t\t-(" << C1 << ") = " << -C2 << endl;
+}
+
+void addConstant(const Complex C1)
+{
+	double value = inputDouble("\n\t\tEnter a value (double): ");
+	Complex C2(C1);
+
+	cout << "\n\t\tC2 + value" << endl;
+	cout << "\t\t(" << C1 << ") + " << value << " = " << C2 + value << endl;
+	cout << "\n\t\tvalue + C2" << endl;
+	cout << "\t\t" << value << " + (" << C1 << ") = " << value + C2 << endl;
+}
+
+void subtractConstant(const Complex C1)
+{
+	double value = inputDouble("\n\t\tEnter a value (double): ");
+	Complex R2(C1);
+
+	cout << "\n\t\tR2 - value" << endl;
+	cout << "\t\t(" << C1 << ") - " << value << " = " << R2 - value << endl;
+	cout << "\n\t\tvalue - R2" << endl;
+	cout << "\t\t" << value << " - (" << C1 << ") = " << value - R2 << endl;
+}
+
+void multiplyConstant(const Complex C1)
+{
+	double value = inputDouble("\n\t\tEnter a value (double): ");
+	Complex C2(C1);
+
+	cout << "\n\t\tC2 * value" << endl;
+	cout << "\t\t(" << C1 << ") * " << value << " = " << C2 * value << endl;
+	cout << "\n\t\tvalue * C2" << endl;
+	cout << "\t\t" << value << " * (" << C1 << ") = " << value * C2 << endl;
+}
+
+void divideConstant(const Complex C1)
+{
+	double value = inputDouble("\n\t\tEnter a value (double): ");
+	Complex C2(C1);
+
+	cout << "\n\t\tC2 / value" << endl;
+	cout << "\t\t(" << C1 << ") / " << value << " = " << C2 / value << endl;
+	cout << "\n\t\tvalue / C2" << endl;
+	cout << "\t\t" << value << " / (" << C1 << ") = " << value / C2 << endl;
+}
+
+
+// Option B ======================================
 
 //PreCondition: input number type Complex, and option type int
 //PostCondition: Set new value for the Complex number
