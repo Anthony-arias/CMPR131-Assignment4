@@ -58,7 +58,7 @@ public:
 
 	// Precondition: valid reference integer of numerator and denominator
 	// Postcondition: simplify rational number
-	void simplify(int& numerator, int& denominator)
+	void simplify(int numerator, int denominator)
 	{
 		if (numerator == 0)
 		{
