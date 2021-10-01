@@ -565,12 +565,16 @@ void evaluateExpression(Rational R1, Rational R2)
 	Rational R7 = numerator / denominator;
 	bool status = R7 >= R3;
 
+	R4.simplify(R4.getNumerator(), R4.getDenominator());
+	R5.simplify(R5.getNumerator(), R5.getDenominator());
+	R6.simplify(R6.getNumerator(), R6.getDenominator());
+	R7.simplify(R7.getNumerator(), R7.getDenominator());
 	cout << "\n\t\t R1 = " << R1 << endl;
 	cout << "\t\t R2 = " << R2 << endl;
 	cout << "\t\t R3 = " << R3 << endl;
 
 	cout << "\n\t\tEvaluating expression..." << endl;
-	cout << "\t\t\t(3 * (R1 + R2) / 7) / (R2 - C1 / 9) >= (" << R3 << ") ? " << endl;
+	cout << "\t\t\t(3 * (R1 + R2) / 7) / (R2 - R1 / 9) >= (" << R3 << ") ? " << endl;
 	cout << "\n\t\tStep #1: (3 * (" << R4 << ") / 7) / ((" << R2 << ") - (" << R6 << ")) >= (" << R3 << ") ? " << endl;
 	cout << "\t\tStep #2: ((" << R5 << ") / 7) / (" << denominator << ") >= (" << R3 << ") ? " << endl;
 	cout << "\t\tStep #3: (" << numerator << ") / (" << denominator << ") >= (" << R3 << ") ? " << endl;
