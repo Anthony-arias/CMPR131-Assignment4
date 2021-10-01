@@ -531,6 +531,11 @@ void evaluateArithmaticOperators(Rational R1, Rational R2)
 	}
 	else
 	{
+		R3.simplify(R3.getNumerator(), R3.getDenominator());
+		R4.simplify(R4.getNumerator(), R4.getDenominator());
+		R5.simplify(R5.getNumerator(), R5.getDenominator());
+		R6.simplify(R6.getNumerator(), R6.getDenominator());
+
 		cout << "\n\n\t\tAddition\t: R1 + R2 -> (" << R1 << ") + (" << R2 << ") = " << R3;
 		cout << "\n\t\tSubtraction\t: R2 - R1 -> (" << R2 << ") - (" << R1 << ") = " << R4;
 		cout << "\n\t\tMultiplication\t: R1 * R2 -> (" << R1 << ") * (" << R2 << ") = " << R5;
@@ -569,6 +574,9 @@ void evaluateExpression(Rational R1, Rational R2)
 	R5.simplify(R5.getNumerator(), R5.getDenominator());
 	R6.simplify(R6.getNumerator(), R6.getDenominator());
 	R7.simplify(R7.getNumerator(), R7.getDenominator());
+	numerator.simplify(numerator.getNumerator(), numerator.getDenominator());
+	denominator.simplify(denominator.getNumerator(), denominator.getDenominator());
+
 	cout << "\n\t\t R1 = " << R1 << endl;
 	cout << "\t\t R2 = " << R2 << endl;
 	cout << "\t\t R3 = " << R3 << endl;
