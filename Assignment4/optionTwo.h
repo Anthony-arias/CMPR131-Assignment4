@@ -3,6 +3,7 @@
 #ifndef OPTION_TWO_LOCK
 #define OPTION_TWO_LOCK
 #include <iostream>
+#include <string>
 #include "input.h"
 #include "Rational.h"
 
