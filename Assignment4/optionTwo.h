@@ -26,7 +26,6 @@ void verifyConditionOperators(Rational R1, Rational R2);
 void evaluateArithmaticOperators(Rational R1, Rational R2);
 void evaluateExpression(Rational R1, Rational R2);
 
-
 // Precondition: NA
 // Postcondition: display menu and instruction for rational number
 void rational_numbers()
@@ -463,11 +462,11 @@ void verifyConditionOperators(Rational R1, Rational R2)
 	if (!R1.isDenominatorValid(R1) && !R2.isDenominatorValid(R2))
 	{
 		cout << "\n\n\t\tR1 == R2 -> (undefined) == (undefined) ? " << std::boolalpha << status1;
-		cout << "\n\t\tR1 != R2 -> (undefined) == (undefined) ? " << std::boolalpha << status2;
-		cout << "\n\t\tR1 >= R2 -> (undefined) == (undefined) ? " << std::boolalpha << status3;
-		cout << "\n\t\tR1 > R2 -> (undefined) == (undefined) ? " << std::boolalpha << status4;
-		cout << "\n\t\tR1 <= R2 -> (undefined) == (undefined) ? " << std::boolalpha << status5;
-		cout << "\n\t\tR1 < R2 -> (undefined) == (undefined) ? " << std::boolalpha << status6;
+		cout << "\n\t\tR1 != R2 -> (undefined) != (undefined) ? " << std::boolalpha << status2;
+		cout << "\n\t\tR1 >= R2 -> (undefined) >= (undefined) ? " << std::boolalpha << status3;
+		cout << "\n\t\tR1 > R2 -> (undefined) > (undefined) ? " << std::boolalpha << status4;
+		cout << "\n\t\tR1 <= R2 -> (undefined) <= (undefined) ? " << std::boolalpha << status5;
+		cout << "\n\t\tR1 < R2 -> (undefined) < (undefined) ? " << std::boolalpha << status6;
 	}
 	else if (!R1.isDenominatorValid(R1) && R2.isDenominatorValid(R2))
 	{
