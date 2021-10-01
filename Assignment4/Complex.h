@@ -212,6 +212,9 @@ public:
 			else if (right.realNumber != 0 && right.imaginaryNumber == 0)
 				return Complex{ left / right.realNumber, 0 };
 		}
+
+		if (left == 0)
+			return Complex{ 0, 0 };
 		
 
 		return Complex{ left / right.realNumber, left / right.imaginaryNumber };
