@@ -170,7 +170,8 @@ void programThreeSubProgramA(void)
         switch (option)
         {
         case 0: return;
-        case 1: numberOfTerms = inputInteger("\n\t\tEnter the number of terms(1..100) for the polynomial: ",1,100); break;
+        case 1: numberOfTerms = inputInteger("\n\t\tEnter the number of terms(1..100) for the polynomial: ",1,100); 
+                pause("\n\t\tPress enter to continue..."); break;
         case 2: specCoefficients(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
         case 3: evaluateExp(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
         case 4: solveDerivative(numberOfTerms, poly); pause("\n\t\tPress enter to continue..."); break;
